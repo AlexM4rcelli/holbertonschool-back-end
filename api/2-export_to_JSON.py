@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import requests, sys , csv
+import requests, sys , json
 
 users = requests.get(f'https://jsonplaceholder.typicode.com/users')
 
@@ -13,9 +13,16 @@ user_todos = requests.get(f'https://jsonplaceholder.typicode.com/users/{user['id
 
 if user_todos.status_code == 200:
     todos_data = user_todos.json()
-    tasks_done = [task for task in todos_data if task['completed']]
-    with open(f'{sys.argv[1]}.csv', 'w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow(["USER_ID", "USERNAME", "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+
+    with open(f'{user['id']}.json', 'w', encoding='utf-8') as file:
+        data = {}
         for task in todos_data:
-            writer.writerow([str(user['id']), user['username'], str(task['completed']), task['title']])
+            new = {}
+            new['task'] = task['title']
+            new['completed'] = task['completed']
+            new['username'] = user['username']
+        
+            if user['id'] not in data:
+                data[user['id']] = []
+            data[user['id']].append(new)
+        file.write(json.dumps(data))
