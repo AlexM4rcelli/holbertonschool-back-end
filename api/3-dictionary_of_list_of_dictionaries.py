@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-"""
-    Module that returns information about all TODO list progress
-    of employees and export to json file
-"""
+"""Prints the completed tasks of all employee on json format"""
+
 
 
 import requests, json

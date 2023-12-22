@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-"""
-    Module for a given employee ID, returns information about his/her
-    TODO list progress
-"""
+"""Prints the completed tasks of an employee"""
+
+
 import requests
 import sys
 

@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-"""
-    Module for a given employee ID, returns information about his/her
-    TODO list progress and export to json file
-"""
+"""Prints the completed tasks of an employee on json format"""
+
 
 
 import requests, sys , json
