@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+"""
+    Module for a given employee ID, returns information about his/her
+    TODO list progress and export to csv file
+"""
+
+
 import requests, sys , csv
 
 users = requests.get(f'https://jsonplaceholder.typicode.com/users')
