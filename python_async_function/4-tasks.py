@@ -3,10 +3,10 @@
     Module to afunction
 """
 import asyncio
-wait_random = __import__('0-basic_async_syntax').wait_random
+task_wait_random = __import__('3-tasks').task_wait_random
 
 
-async def wait_n(n: int, max_delay: int) -> list[float]:
+async def task_wait_n(n: int, max_delay: int) -> list[float]:
     """
     First we create the awaitables objects or tasks, each task
     corresponds to the execution of the wait_random function.
@@ -14,6 +14,6 @@ async def wait_n(n: int, max_delay: int) -> list[float]:
     Then we use asyncio.as_completed to wait until each task
     is completed.
     """
-    tasks = [wait_random(max_delay) for _ in range(n)]
+    tasks = [task_wait_random(max_delay) for _ in range(n)]
 
     return [await task for task in asyncio.as_completed(tasks)]
