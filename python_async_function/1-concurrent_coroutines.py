@@ -2,11 +2,12 @@
 """
     Module to afunction
 """
+from typing import List
 import asyncio
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
-async def wait_n(n: int, max_delay: int) -> list[float]:
+async def wait_n(n: int, max_delay: int) -> List[float]:
     """
     First we create the awaitables objects or tasks, each task
     corresponds to the execution of the wait_random function.
