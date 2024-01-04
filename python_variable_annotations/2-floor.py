@@ -11,5 +11,5 @@ def floor(num: float) -> int:
     Returns:
     int: The floor of the input float.
     """
-    
+
     return int(num) if num >= 0 else int(num) - 1
