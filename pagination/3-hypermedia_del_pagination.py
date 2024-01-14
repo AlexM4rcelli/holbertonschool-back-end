@@ -4,10 +4,9 @@
     an end index corresponding to the range of indexes to return in a list for
     those particular pagination parameters.
 """
-
-
 import csv
 from typing import List, Dict
+
 
 class Server:
     """Server class to paginate a database of popular baby names.

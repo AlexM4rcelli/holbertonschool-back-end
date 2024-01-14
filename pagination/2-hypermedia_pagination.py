@@ -4,10 +4,9 @@
     an end index corresponding to the range of indexes to return in a list for
     those particular pagination parameters.
 """
-
-
 import csv
 from typing import List
+
 
 def index_range(page, page_size):
     """
@@ -54,7 +53,7 @@ class Server:
             return []
 
         return dataset[start_index:end_index]
-    
+
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """
         Retrieve hyperlinked information about the current page.
