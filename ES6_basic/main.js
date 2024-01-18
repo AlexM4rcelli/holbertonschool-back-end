@@ -1,11 +1,26 @@
 import createEmployeesObject from './11-createEmployeesObject.js';
 import createReportObject from './12-createReportObject.js';
 
-const employees = {
-    ...createEmployeesObject('engineering', ['Bob', 'Jane']),
-    ...createEmployeesObject('marketing', ['Sylvie'])
-};      
+const engineering = ['John Doe', 'Guillaume Salva'];
+const marketing = ['Agatha Christie', 'Jason Leverson'];
+const design = ['Kanye East', 'Jay Li'];
 
-const report = createReportObject(employees);
-console.log(report.allEmployees);
-console.log(report.getNumberOfDepartments(report.allEmployees));
+test('createReportObject returns the correct object', () => {
+    const employees = {
+      ...createEmployeesObject('engineering', engineering),
+      ...createEmployeesObject('marketing', marketing),
+      ...createEmployeesObject('design', design),
+    };
+  
+    const holbertonEmployees = {
+      engineering,
+      marketing,
+      design,
+    };
+  
+    const report = createReportObject(employees);
+  
+    expect(report.allEmployees).toEqual(holbertonEmployees);
+    expect(report.getNumberOfDepartments(report.allEmployees)).toEqual(3);
+  });
+  
