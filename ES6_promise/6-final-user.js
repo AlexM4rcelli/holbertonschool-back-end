@@ -7,5 +7,5 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
 
   return Promise.all([promise1, promise2])
     .then((results) => results.map((result) => ({ status: 'fulfilled', value: result })))
-    .catch((error) => ({ status: 'rejected', value: error }));
+    .catch((error) => ({ status: 'rejected', value: error.toString() }));
 }
